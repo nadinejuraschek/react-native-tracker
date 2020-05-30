@@ -3,9 +3,15 @@ const   dotenv      = require("dotenv"),
         express     = require("express"),
         mongoose    = require("mongoose");
 
+// FILES AND FOLDERS
+const   authRoutes  = require("./routes/authRoutes");
+
 dotenv.config();
 
 const app = express();
+
+app.use(express.json());
+app.use(authRoutes);
 
 // DATABASE
 mongoose.connect(process.env.MONGO_DB, {
