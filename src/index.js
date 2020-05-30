@@ -1,3 +1,6 @@
+// MODELS
+require("./models/User");
+
 // NPM PACKAGES
 const   dotenv      = require("dotenv"), 
         express     = require("express"),

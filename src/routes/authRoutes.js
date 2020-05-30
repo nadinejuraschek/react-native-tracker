@@ -1,5 +1,7 @@
 // NPM PACKAGES
-const   express = require("express");
+const   express     = require("express"),
+        mongoose    = require("mongoos"),
+        User        = mongoose.model("User");
 
 const   router  = express.Router();
 
