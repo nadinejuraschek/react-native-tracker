@@ -1,1 +1,9 @@
-# react-native-tracker
+# Tracker
+
+## Technologies
+* JavaScript
+* React Native
+* Node
+    * mongoose
+    * jwt
+* MongoDB

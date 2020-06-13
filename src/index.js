@@ -7,7 +7,8 @@ const   dotenv      = require("dotenv"),
         mongoose    = require("mongoose");
 
 // FILES AND FOLDERS
-const   authRoutes  = require("./routes/authRoutes");
+const   authRoutes  = require("./routes/authRoutes"),
+        requireAuth = require("./middlewares/requireAuth");
 
 dotenv.config();
 
@@ -30,8 +31,8 @@ mongoose.connection.on("error", (err) => {
 });
 
 // ROUTES
-app.get("/", (req, res) => {
-    res.send("Hi there!");
+app.get("/", requireAuth, (req, res) => {
+    res.send(`Your email: ${req.user.email}`);
 });
 
 // SERVER
