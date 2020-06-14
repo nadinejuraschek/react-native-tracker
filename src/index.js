@@ -1,5 +1,6 @@
 // MODELS
 require("./models/User");
+require("./models/Track");
 
 // NPM PACKAGES
 const   dotenv      = require("dotenv"), 
@@ -8,7 +9,8 @@ const   dotenv      = require("dotenv"),
 
 // FILES AND FOLDERS
 const   authRoutes  = require("./routes/authRoutes"),
-        requireAuth = require("./middlewares/requireAuth");
+        requireAuth = require("./middlewares/requireAuth"),
+        trackRoutes = require("./routes/trackRoutes");
 
 dotenv.config();
 
@@ -16,6 +18,7 @@ const app = express();
 
 app.use(express.json());
 app.use(authRoutes);
+app.use(trackRoutes);
 
 // DATABASE
 mongoose.connect(process.env.MONGO_DB, {
