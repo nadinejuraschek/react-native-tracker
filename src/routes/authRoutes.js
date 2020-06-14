@@ -6,7 +6,7 @@ const   express     = require("express"),
 
 const   router  = express.Router();
 
-router.post("/signup", async (req, res) => {
+router.post("/register", async (req, res) => {
     const { email, password } = req.body;
 
     try {
@@ -15,7 +15,7 @@ router.post("/signup", async (req, res) => {
 
         const token = jwt.sign({ userId: user._id }, process.env.APP_SECRET);
         res.send({ token });
-        res.send("You are trying to sign up.");
+        res.send("You are trying to register.");
     } catch (err) {
         return res.status(422).send(err.message);
     };
